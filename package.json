@@ -1,0 +1,21 @@
+{
+  "name": "chemistrylab",
+  "version": "1.0.0",
+  "description": "just a lab",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/dat.gui": "^0.7.13",
+    "@types/three": "^0.180.0",
+    "dat.gui": "^0.7.9",
+    "three": "^0.180.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.7"
+  }
+}

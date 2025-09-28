@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    transition: margin-left 0.3s;
+}
+
+canvas {
+    display: block;
+}
+
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: width 0.3s;
+}
+
+#resizer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    cursor: col-resize;
+}
+
+#menu-button {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: left 0.3s;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 5px 0;
+}
+
+.sidebar-hidden {
+    width: 0 !important;
+    padding: 0 !important;
+}
+
+.sidebar-hidden + #menu-button {
+    left: 10px;
+}
