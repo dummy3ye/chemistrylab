@@ -1,46 +1,23 @@
-const sidebar = document.getElementById('sidebar');
-const menuButton = document.getElementById('menu-button');
-const resizer = document.getElementById('resizer');
-const body = document.body;
+const bookIcon = document.getElementById('book-icon');
+const infoDisplay = document.getElementById('info-display');
+const infoContent = document.getElementById('info-content');
 
-if (sidebar && menuButton && resizer) {
-    body.style.marginLeft = getComputedStyle(sidebar).width;
-
-    // Add title
-    const title = document.createElement('h1');
-    title.textContent = 'Periodic Table';
-    sidebar.appendChild(title);
-
-    // Toggle sidebar
-    menuButton.addEventListener('click', () => {
-        sidebar.classList.toggle('sidebar-hidden');
-        if (sidebar.classList.contains('sidebar-hidden')) {
-            body.style.marginLeft = '0';
-        } else {
-            body.style.marginLeft = getComputedStyle(sidebar).width;
-        }
-        window.dispatchEvent(new Event('resize'));
+if (bookIcon && infoDisplay && infoContent) {
+    bookIcon.addEventListener('click', () => {
+        infoDisplay.classList.toggle('hidden');
     });
 
-    // Resize sidebar
-    let isResizing = false;
+    infoContent.innerHTML = `
+        <h2>Carbon (C)</h2>
+        <p>Atomic Number: 6</p>
+        <p>Atomic Mass: 12.011</p>
+        <p>Electron Configuration: [He] 2s² 2p²</p>
+        <p>Carbon is a chemical element with the symbol C and atomic number 6. It is nonmetallic and tetravalent—making four electrons available to form covalent chemical bonds. It belongs to group 14 of the periodic table. Carbon is one of the few elements known since antiquity.</p>
 
-    resizer.addEventListener('mousedown', (e) => {
-        isResizing = true;
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseup', () => {
-            isResizing = false;
-            document.removeEventListener('mousemove', handleMouseMove);
-            window.dispatchEvent(new Event('resize'));
-        });
-    });
-
-    function handleMouseMove(e) {
-        if (!isResizing) return;
-        const newWidth = e.clientX;
-        if (newWidth > 100 && newWidth < 500) { // Min and max width
-            sidebar.style.width = newWidth + 'px';
-            body.style.marginLeft = newWidth + 'px';
-        }
-    }
+        <h2>Hydrogen (H)</h2>
+        <p>Atomic Number: 1</p>
+        <p>Atomic Mass: 1.008</p>
+        <p>Electron Configuration: 1s¹</p>
+        <p>Hydrogen is a chemical element with the symbol H and atomic number 1. With a standard atomic weight of 1.008, hydrogen is the lightest element in the periodic table. Its monatomic form (H) is the most abundant chemical substance in the Universe, constituting roughly 75% of all baryonic mass.</p>
+    `;
 }
