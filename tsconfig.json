@@ -8,6 +8,7 @@
       "DOM"
     ],
     "moduleResolution": "Node",
+  "skipLibCheck": true,
     "strict": true,
     "sourceMap": true,
     "resolveJsonModule": true,

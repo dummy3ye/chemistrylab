@@ -10,16 +10,21 @@ canvas#bg {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    /* place canvas behind content but keep it able to receive pointer events */
+    z-index: 0;
 }
 
 #book-icon {
     position: fixed;
     top: 20px;
     left: 20px;
-    font-size: 30px;
+    font-size: 28px;
+    /* larger clickable area so users can easily toggle the sidebar */
+    padding: 10px;
+    border-radius: 6px;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1001;
+    background: rgba(0,0,0,0.25);
 }
 
 #info-display {
@@ -33,7 +38,7 @@ canvas#bg {
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
-    z-index: 1000;
+    z-index: 1002;
 }
 
 #info-display.hidden {

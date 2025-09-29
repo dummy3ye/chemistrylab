@@ -7,15 +7,21 @@ const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
+// the canvas element in the page (assert HTMLCanvasElement so TypeScript knows the exact type)
+const canvas = document.querySelector('#bg') as HTMLCanvasElement | null;
 const renderer = new THREE.WebGLRenderer({
-  canvas: document.querySelector('#bg'),
+  canvas: canvas ?? undefined,
 });
 
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 camera.position.setZ(30);
 
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.07;
+controls.target.set(0, 0, 0);
 
 const starGeometry = new THREE.BufferGeometry();
 const starMaterial = new THREE.PointsMaterial({
